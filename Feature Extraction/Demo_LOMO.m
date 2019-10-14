@@ -8,14 +8,12 @@ clc;
 close all;
 
 %imgDir = 'PRID450S/cam_a/';
-%imgDir = 'underground_reid/gallery/';
-imgDir = 'Custom/dataset/camB/';
-addpath('../bin/');
+imgDir = 'ncamA/';
+%addpath('../bin/');
 
 %% Get image list
 %list = dir(['PRID450S/cam_a/*.png']);
-list = dir(['Custom/dataset/camB/*.png']);
-%list = dir(['underground_reid/gallery/*.jpeg']);
+list = dir(['ncamA/*.png']);
 n = length(list);
 
 %% Allocate memory
@@ -25,14 +23,14 @@ n = length(list);
 %% read images
 for i = 1 : n
     info = imfinfo([imgDir, list(i).name]);
-    images = zeros(info.Height, info.Width, 3, n, 'uint8');
+    images = zeros(info.Height, info.Width, 3,'uint8');
     images(:,:,:,i) = imread([imgDir, list(i).name]);
     images1(:,:,:,i) = imresize(images(:,:,:,i),[128 48]);
 end
 
 %% extract features. Run with a set of images is usually faster than that one by one, but requires more memory.
-imshow(images1(:,:,:,1));
-probe = LOMO(images1);
+imshow(images1(:,:,:,i));
+gallery = LOMO(images1);
 
 %% if you need to set different parameters other than the defaults, set them accordingly
 %{
@@ -47,4 +45,4 @@ options.numPoints = 4;
 descriptors = LOMO(images, options);
 %}
 
-rmpath('../bin/');
+%rmpath('../bin/');
