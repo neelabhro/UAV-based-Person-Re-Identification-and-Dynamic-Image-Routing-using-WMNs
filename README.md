@@ -6,6 +6,12 @@ Person Re-Identification (PRID) has been one of the most challenging tasks in in
 #### Wireless mesh network consisting of UAVs and a base station:
 ![](Images/fig1.png)
 
+#### Experimental setting for building dataset:
+![](Images/subjects.png)
+
+#### Illustration of our experimental setup:
+![](Images/stages.png)
+
 The work was presented at the IEEE International Conference on Signal Processing and Integrated Networks (SPIN) 2020. 
 Please cite [1] if you choose to use this work. The work can be found at IEEE Xplore(https://ieeexplore.ieee.org/document/9071078)
 
